@@ -21,9 +21,8 @@
     </header>
 
     <body>
-        @dump($comics)
         <div class="container">
-            <table class="table table-sm">
+            <table class="table table-sm table-dark table-borderless">
                 <thead>
                     <tr>
                         <th scope="col">id</th>
@@ -36,6 +35,7 @@
                         <th scope="col">type</th>
                         <th scope="col">created_at</th>
                         <th scope="col">updated_at</th>
+                        <th scope="col">functions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +43,7 @@
                     <tr>
                         <th scope="row">{{ $comic->id }}</th>
                         <td>{{ $comic->title }}</td>
-                        <td>{{ substr( $comic->description, 0, 30 ).'...'  }}</td>
+                        <td>{{ substr( $comic->description, 0, 40 ).'...'  }}</td>
                         <td>{{ $comic->thumb }}</td>
                         <td>{{ $comic->price }}</td>
                         <td>{{ $comic->series }}</td>
@@ -51,6 +51,11 @@
                         <td>{{ $comic->type }}</td>
                         <td>{{ $comic->created_at }}</td>
                         <td>{{ $comic->updated_at }}</td>
+                        <td>
+                            <a href="{{ route('comics.show', $comic->id ) }}" class="btn btn-primary btn-sm w-100">Show</a>
+                            <button class="btn btn-warning btn-sm w-100">Edit</button>
+                            <button class="btn btn-danger btn-sm w-100">Delete</button>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
