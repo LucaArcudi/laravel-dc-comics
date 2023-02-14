@@ -16,7 +16,9 @@
 </head>
 
 <body>
-
+    <header>
+        <h1>Comics Index</h1>
+    </header>
 </body>
 
 </html>
