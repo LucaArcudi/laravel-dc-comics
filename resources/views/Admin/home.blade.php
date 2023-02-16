@@ -14,14 +14,13 @@
 </head>
 
 <body>
-    <header>
-        <h1>Admin Home</h1>
-    </header>
+
+    @include('admin.partials.header')
 
     <body>
         <ul>
             <li>
-                <a href="{{ route('comics.index') }}">Comics Index</a>
+                <a href="{{ route('admin.comics.index') }}">Comics Index</a>
             </li>
         </ul>
     </body>
