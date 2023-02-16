@@ -33,16 +33,10 @@ class ComicController extends Controller
         $data = $request->all();
 
         $newComics = new Comic();
-        $newComics->title = $data['title'];
-        $newComics->description = $data['description'];
-        $newComics->thumb = $data['thumb'];
-        $newComics->price = $data['price'];
-        $newComics->series = $data['series'];
-        $newComics->sale_date = $data['sale_date'];
-        $newComics->type = $data['type'];
+        $newComics->fill($data);
         $newComics->save();
 
-        return redirect()->route('comics.show', $newComics->id);
+        return redirect()->route('admin.comics.show', $newComics->id);
     }
 
     /**

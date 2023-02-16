@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('comics.create') }}" class="btn btn-lg btn-secondary my-3">Create a new data</a>
+                    <a href="{{ route('admin.comics.create') }}" class="btn btn-lg btn-secondary my-3">Create a new data</a>
                 </div>
                 <div class="col">
                     <table class="table table-sm table-dark table-borderless">
@@ -57,7 +57,7 @@
                                 <td>{{ $comic->created_at }}</td>
                                 <td>{{ $comic->updated_at }}</td>
                                 <td>
-                                    <a href="{{ route('comics.show', $comic->id ) }}" class="btn btn-primary btn-sm w-100">Show</a>
+                                    <a href="{{ route('admin.comics.show', $comic->id ) }}" class="btn btn-primary btn-sm w-100">Show</a>
                                     <button class="btn btn-warning btn-sm w-100">Edit</button>
                                     <button class="btn btn-danger btn-sm w-100">Delete</button>
                                 </td>
