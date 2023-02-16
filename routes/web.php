@@ -23,4 +23,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
     Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
     Route::get('/comics/{id}', [ComicController::class, 'show'])->name('comics.show');
+    Route::get('/comics/{id}/edit', [ComicController::class, 'edit'])->name('comics.edit');
+    Route::put('/comics/{id}', [ComicController::class, 'update'])->name('comics.update');
 });

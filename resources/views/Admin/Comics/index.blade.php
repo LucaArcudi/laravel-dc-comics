@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <a href="{{ route('admin.comics.create') }}" class="btn btn-lg btn-secondary my-3">Create a new data</a>
+            <a href="{{ route('admin.comics.create') }}" class="btn btn-lg btn-secondary my-3">Create a new comic</a>
         </div>
         <div class="col">
             <table class="table table-sm ">
@@ -38,7 +38,7 @@
                         <td>{{ $comic->updated_at }}</td>
                         <td>
                             <a href="{{ route('admin.comics.show', $comic->id ) }}" class="btn btn-primary btn-sm w-100">Show</a>
-                            <button class="btn btn-warning btn-sm w-100">Edit</button>
+                            <a href="{{ route('admin.comics.edit', $comic->id) }}" class="btn btn-warning btn-sm w-100">Edit</a>
                             <button class="btn btn-danger btn-sm w-100">Delete</button>
                         </td>
                     </tr>
