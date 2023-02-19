@@ -10,9 +10,7 @@
                 <h5 class="card-title">{{ $comic->title }}</h5>
                 <h6 class="card-subtitle">{{ $comic->series }}</h6>
                 <p class="card-text">{{ $comic->type }}</p>
-                <p class="card-text">{{ substr( $comic->description, 0, 100 ).'...' }}
-                    <a href="#">show more</a>
-                </p>
+                <p class="card-text">{{ $comic->description }}</p>
                 <p class="card-text">{{ $comic->sale_date }}</p>
                 <p class="card-text">{{ $comic->price }}</p>
                 <a href="{{ route('admin.comics.index') }}" class="btn btn-primary">Index</a>
