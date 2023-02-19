@@ -39,7 +39,11 @@
                         <td>
                             <a href="{{ route('admin.comics.show', $comic->id ) }}" class="btn btn-primary btn-sm w-100">Show</a>
                             <a href="{{ route('admin.comics.edit', $comic->id) }}" class="btn btn-warning btn-sm w-100">Edit</a>
-                            <button class="btn btn-danger btn-sm w-100">Delete</button>
+                            <form action="{{ route('admin.comics.destroy', $comic->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm w-100">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
