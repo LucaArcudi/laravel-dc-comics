@@ -31,12 +31,11 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|string|min:2|max:50',
             'description' => 'required|min:10',
-            'thumb' => 'required|url|max:255',
-            'price' => 'required|decimal:2',
+            'thumb' => 'required|string|max:255',
+            'price' => 'required|decimal:2|max:9999.99',
             'series' => 'required|string|max:50|min:2',
             'sale_date' => 'required|date',
             'type' => 'required|string|max:20|min:2',
@@ -73,12 +72,11 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
 
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|string|min:2|max:50',
             'description' => 'required|min:10',
-            'thumb' => 'required|url|max:255',
+            'thumb' => 'required|string|max:255',
             'price' => 'required|decimal:2',
             'series' => 'required|string|max:50|min:2',
             'sale_date' => 'required|date',
