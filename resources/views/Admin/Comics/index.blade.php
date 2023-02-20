@@ -1,8 +1,10 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Comics Index')
+
 @section('main-content')
 <div class="container">
-    <div class="row">
+    <div id="as" class="row">
         <div class="col-12">
             <a href="{{ route('admin.comics.create') }}" class="btn btn-lg btn-secondary my-3">Create a new comic</a>
         </div>
@@ -39,7 +41,7 @@
                         <td>
                             <a href="{{ route('admin.comics.show', $comic->id ) }}" class="btn btn-primary btn-sm w-100">Show</a>
                             <a href="{{ route('admin.comics.edit', $comic->id) }}" class="btn btn-warning btn-sm w-100">Edit</a>
-                            <form action="{{ route('admin.comics.destroy', $comic->id) }}" method="POST">
+                            <form class="form-deleter" action="{{ route('admin.comics.destroy', $comic->id) }}" method="POST" data-element-name="{{ $comic->title }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm w-100">Delete</button>
@@ -52,4 +54,8 @@
         </div>
     </div>
 </div>            
+@endsection
+
+@section('scripts')
+@vite('resources/js/deletePopUp.js')
 @endsection

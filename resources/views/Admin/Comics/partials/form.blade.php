@@ -29,5 +29,5 @@
         <label class="form-label">type</label>
         <input type="text" class="form-control" value="{{ $comic->type }}" name="type">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">{{ $buttonName }}</button>
 </form>

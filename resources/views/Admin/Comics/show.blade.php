@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title', $comic->series )
+
 @section('main-content')
 <div class="container">
     <div class="row text-center">
