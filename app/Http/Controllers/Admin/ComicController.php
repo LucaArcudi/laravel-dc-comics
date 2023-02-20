@@ -32,6 +32,16 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $request->validate([
+            'title' => 'required|string|min:2|max:50',
+            'description' => 'required|min:10',
+            'thumb' => 'required|url|max:255',
+            'price' => 'required|decimal:2',
+            'series' => 'required|string|max:50|min:2',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:20|min:2',
+
+        ]);
 
         $newComics = new Comic();
         $newComics->fill($data);
@@ -65,10 +75,21 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
+        $request->validate([
+            'title' => 'required|string|min:2|max:50',
+            'description' => 'required|min:10',
+            'thumb' => 'required|url|max:255',
+            'price' => 'required|decimal:2',
+            'series' => 'required|string|max:50|min:2',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:20|min:2',
+
+        ]);
+
         $updatedComic = Comic::findOrFail($id);
         $updatedComic->update($data);
 
-        return redirect()->route('admin.comics.show', $updatedComic->id)->with('message', "$updatedComic->title has been modified")->with('alert-type', 'success');
+        return redirect()->route('admin.comics.show', $updatedComic->id)->with('message', "Successfully modified")->with('alert-type', 'success');
     }
 
     /**
