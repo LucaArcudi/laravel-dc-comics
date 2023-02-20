@@ -37,7 +37,7 @@ class ComicController extends Controller
         $newComics->fill($data);
         $newComics->save();
 
-        return redirect()->route('admin.comics.show', $newComics->id);
+        return redirect()->route('admin.comics.show', $newComics->id)->with('message', "$newComics->title has been created")->with('alert-type', 'primary');
     }
 
     /**
@@ -68,7 +68,7 @@ class ComicController extends Controller
         $updatedComic = Comic::findOrFail($id);
         $updatedComic->update($data);
 
-        return redirect()->route('admin.comics.show', $updatedComic->id);
+        return redirect()->route('admin.comics.show', $updatedComic->id)->with('message', "$updatedComic->title has been modified")->with('alert-type', 'success');
     }
 
     /**
@@ -78,6 +78,6 @@ class ComicController extends Controller
     {
         $comic = Comic::findOrFail($id);
         $comic->delete();
-        return redirect()->route('admin.comics.index');
+        return redirect()->route('admin.comics.index')->with('message', "$comic->title has been deleted")->with('alert-type', 'danger');
     }
 }

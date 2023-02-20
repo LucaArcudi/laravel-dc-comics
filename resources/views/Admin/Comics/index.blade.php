@@ -5,6 +5,13 @@
 @section('main-content')
 <div class="container">
     <div id="as" class="row">
+        @if (session('message'))
+            
+            <div class="alert alert-{{ session('alert-type') }}">
+                {{ session('message') }}
+            </div>
+            
+        @endif
         <div class="col-12">
             <a href="{{ route('admin.comics.create') }}" class="btn btn-lg btn-secondary my-3">Create a new comic</a>
         </div>

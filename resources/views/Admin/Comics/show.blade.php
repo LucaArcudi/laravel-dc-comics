@@ -5,6 +5,9 @@
 @section('main-content')
 <div class="container">
     <div class="row text-center">
+        <div class="alert alert-{{ session('alert-type') }}">
+            {{ session('message') }}
+        </div>
         <div class="card col">
             
             <div class="card-body">
